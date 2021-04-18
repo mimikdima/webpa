@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-5 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img [src]="userDetails.avatar_url" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4>{{userDetails.name}}</h4>
+                <p class="text-secondary mb-1">Email: {{userDetails.email}}</p>
+                <p class="text-muted font-size-sm"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4"><h6 class="mb-0">Companies</h6></div>
+              <div class="col-sm-8 text-secondary">{{userDetails.company}}</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4"><h6 class="mb-0">User Exist</h6></div>
+              <div class="col-sm-8 text-secondary">{{userDetails.created_at | countDates}}</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4"><h6 class="mb-0">Following</h6></div>
+              <div class="col-sm-8 text-secondary">{{userDetails.following}}</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4"><h6 class="mb-0">Followers</h6></div>
+              <div class="col-sm-8 text-secondary">{{userDetails.followers}}</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4"><h6 class="mb-0">Repos</h6></div>
+              <div class="col-sm-8 text-secondary">{{userDetails.public_repos}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="input-group">
+  <input type="text" class="form-control" #searchValue placeholder="Search Login">
+  <div class="input-group-append">
+    <button class="btn btn-secondary" type="button" (click)="searchUser(searchValue.value)">
+      <i class="pi pi-search"></i>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="searchUser$ | async">
+  <p-dialog [(visible)]="showModal"  header="Search Result" [modal]="true">
+
+    We Found {{(searchUser$ | async).total_count}} <span *ngIf="(searchUser$ | async).total_count > 0"> users, we will show first 30, enter a more accurate name</span>
+    <hr>
+    <p-table [value]="(searchUser$ | async).items"
+             [scrollable]="true"
+             scrollHeight="200px"
+             [style]="{maxWidth: '700px'}"
+             [lazy]="true"
+             [resizableColumns]="true"
+             styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th width="100">ID</th>
+          <th width="70">Avatar</th>
+          <th>Login</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr (click)="getUserDetails(user)">
+          <td width="100">{{user.id}}</td>
+          <td width="70" style="text-align: center;"><img [src]="user.avatar_url" class="avatar"/></td>
+          <td>{{user.login}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-dialog>
+</div>

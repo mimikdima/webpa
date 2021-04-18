@@ -1,0 +1,26 @@
+<app-user-details [userDetails]="userDetails.user"></app-user-details>
+
+<p-table [value]="userDetails.repos" [paginator]="true" [rows]="10" styleClass="p-datatable-striped" scrollHeight="200px">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th>Name</th>
+      <th style="width: 80px;">Private</th>
+      <th style="width: 80px;">Size</th>
+      <th style="width: 95px;">Watchers</th>
+      <th style="width: 70px;">Forks</th>
+      <th>Issues</th>
+      <th>Language</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-repo>
+    <tr>
+      <td>{{repo.name}}</td>
+      <td>{{(repo.private) ? 'Yes' : 'No'}}</td>
+      <td>{{repo.size}}</td>
+      <td>{{repo.watchers}}</td>
+      <td>{{repo.forks}}</td>
+      <td></td>
+      <td>{{repo.language}}</td>
+    </tr>
+  </ng-template>
+</p-table>
